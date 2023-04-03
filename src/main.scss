@@ -11,9 +11,32 @@ $unit: 8px;
     @return $value * $unit;
 }
 
-*{
+@mixin reset_pm{
     padding: 0;
     margin: 0;
+}
+
+@mixin btn($background-color, $color, $bold){
+    background-color: $background-color;
+    color: $color;
+    border-radius: 50px;
+    padding: 20px 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+
+    @if($bold=='true'){
+        font-weight: bolder;
+    }
+}
+
+*{
+    @include reset_pm();
     box-sizing: border-box;
 }
 
@@ -49,14 +72,19 @@ h3{
 }
 
 ul{
-    padding: 0;
-    margin: 0;
+    @include reset_pm();
     list-style: none;
     display: flex;
     gap: 20px;
     li{
         a{           
+            @include btn($terciary-color,$secondary-color,'true');
+            /* @include btn($background-color: $terciary-color,$color: $secondary-color,$bold: 'true'); */
 
+            &:hover{
+                @include btn($secondary-color,$terciary-color ,'false' );
+                box-shadow: $box-shadow;
+            }
         }
     }
 }

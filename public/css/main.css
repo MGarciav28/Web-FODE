@@ -127,6 +127,17 @@ header nav {
   justify-content: space-between;
 }
 
+.prices .prev {
+  font-size: 16px;
+  font-weight: bolder;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.prices .now {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
 .row {
   display: flex;
   align-items: center;
